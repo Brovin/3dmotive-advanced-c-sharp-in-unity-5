@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 453165158f3c1d245892977524e6772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pilov: {fileID: 0}
+  Pilov: {fileID: 1870582392}
   PivotDistance: 5
   RotSpeed: 10
 --- !u!65 &422697847

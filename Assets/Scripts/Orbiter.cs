@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Orbiter : MonoBehaviour
 {
@@ -20,6 +21,17 @@ public class Orbiter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float Horz = CrossPlatformInputManager.GetAxis("Horizontal");
+        float Vert = CrossPlatformInputManager.GetAxis("Vertical");
+
+        RotX += Vert * Time.deltaTime * RotSpeed;
+        RotY += Horz * Time.deltaTime * RotSpeed;
+
+        Quaternion YRot = Quaternion.Euler(0f, RotY, 0f);
+        DestRot = YRot * Quaternion.Euler(RotX, 0f, 0f);
+
+        ThisTransform.rotation = DestRot;
+
+        ThisTransform.position = Pilov.position + ThisTransform.rotation * Vector3.forward * -PivotDistance;
     }
 }
